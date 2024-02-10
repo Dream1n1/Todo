@@ -1,4 +1,4 @@
-export class todo_item {
+export class task {
     constructor(title, due_date, note, check) {
         this.title = title,
         this.due_date = due_date,
