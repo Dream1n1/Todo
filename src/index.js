@@ -1,20 +1,15 @@
-// let projects_list = [[task1,task2,task3],[],[]...];
-let projects_list = [];
+//use this file for DOM
+import './style.css'
+import {validate, task_on_screen} from './project.js';
 
-function createProject() {
-    let project = [];
-    projects_list.push(project);
-}
+const projectContainer = document.querySelector('.projectContainer');
+const submitProject = document.querySelector('.submitProject');
+const createTask = document.querySelector('.createTask');
+const submitTask = document.querySelector('.submitTask');
 
-class task {
-    constructor(title, due_date, note, check) {
-        this.title = title,
-        this.due_date = due_date,
-        this.note = note,
-        this.check = "uncheck"
-    }
-}
 
-function createTask(project, title, due_date, note, check) {
-    project.push(new task(title, due_date, note, check));
-}
+submitProject.addEventListener('click', ()=>{
+    validate();
+});
+
+submitTask.addEventListener('click', task_on_screen);
