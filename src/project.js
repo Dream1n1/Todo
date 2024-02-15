@@ -5,9 +5,11 @@ const projectList = document.querySelector('.projectList');
 const container = document.querySelector('.container');
 
 const task_form = document.querySelector('#task_form');
-const task_name = document.querySelector('#task_name');
-const task_date = document.querySelector('#task_date');
+const task_name_input = document.querySelector('#task_name_input');
+const task_date_input = document.querySelector('#task_date_input');
+const task_note_input = document.querySelector('#task_note_input');
 const tasks_container= document.querySelector('.tasks');
+
 
 function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -59,19 +61,33 @@ function validate() {
     return current_project_id;
 }
             
-            
-//important: when task form is submitted take the values and store them in projects_list[associated ID NOT project_id_counter]
 function task_on_screen() {
-    createTask(current_project_id, task_name.value);
+    if (!task_name_input.value|| !task_date_input.value) {
+        return;
+    } else {
+        createTask(current_project_id, task_name_input.value, task_date_input.value);
+        
+        let task_item = document.createElement('div');
+        task_item.className = 'task_item';
+        
+        let  task_name= document.createElement('div');
+        task_name.className = 'task_name';
+        task_name.innerHTML = task_name_input.value.toString();
+        
+        let  task_date= document.createElement('div');
+        task_date.className = 'task_date';
+        task_date.innerHTML = task_date_input.value;
 
-    let task_item = document.createElement('div');
-    task_item.className = 'task_item';
-    task_item.innerHTML = task_name.value.toString();
-    tasks_container.appendChild(task_item);
+        let  task_note= document.createElement('div');
+        task_note.className = 'task_note';
+        task_note.innerHTML = task_note_input.value;
+
+        task_item.appendChild(task_name);
+        task_item.appendChild(task_date);
+        task_item.appendChild(task_note);
+        
+        tasks_container.appendChild(task_item);
+    }
 }
-
-//projects list listener => get id, store it => pass it to task input listener  => create tasks in the right project
-//                                           => show associated tasks
-
 
 export {validate, task_on_screen};
