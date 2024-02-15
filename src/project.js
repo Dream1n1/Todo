@@ -39,6 +39,8 @@ function validate() {
         previous_project_id = project_id_counter;
         current_project_id = project_id_counter;
         newProject.addEventListener('click', (event)=>{
+            console.log(projects_list);
+
             previous_project_id = current_project_id;
             current_project_id = parseInt(event.target.id);
             if (previous_project_id == current_project_id) {
@@ -47,10 +49,7 @@ function validate() {
                 removeAllChildNodes(tasks_container);
                 //create associated list of tasks and show them on screen
                 projects_list[current_project_id].forEach(element => {
-                    let task_item = document.createElement('div');
-                    task_item.className = 'task_item';
-                    task_item.innerHTML = element.title.toString();
-                    tasks_container.appendChild(task_item);
+                    task_content_creator(element.title, element.due_date, element.note);
                 });
                 return current_project_id;
             }
@@ -65,29 +64,34 @@ function task_on_screen() {
     if (!task_name_input.value|| !task_date_input.value) {
         return;
     } else {
-        createTask(current_project_id, task_name_input.value, task_date_input.value);
-        
-        let task_item = document.createElement('div');
-        task_item.className = 'task_item';
-        
-        let  task_name= document.createElement('div');
-        task_name.className = 'task_name';
-        task_name.innerHTML = task_name_input.value.toString();
-        
-        let  task_date= document.createElement('div');
-        task_date.className = 'task_date';
-        task_date.innerHTML = task_date_input.value;
-
-        let  task_note= document.createElement('div');
-        task_note.className = 'task_note';
-        task_note.innerHTML = task_note_input.value;
-
-        task_item.appendChild(task_name);
-        task_item.appendChild(task_date);
-        task_item.appendChild(task_note);
-        
-        tasks_container.appendChild(task_item);
+        createTask(current_project_id, task_name_input.value, task_date_input.value, task_note_input.value);
+        task_content_creator(task_name_input.value, task_date_input.value, task_note_input.value);
     }
 }
+
+function task_content_creator(get_task_name, get_task_date, get_task_note) {
+    let task_item = document.createElement('div');
+    task_item.className = 'task_item';
+    
+    let  task_name= document.createElement('div');
+    task_name.className = 'task_name';
+    task_name.innerHTML = get_task_name;
+    
+    let  task_date= document.createElement('div');
+    task_date.className = 'task_date';
+    task_date.innerHTML = get_task_date;
+
+    let  task_note= document.createElement('div');
+    task_note.className = 'task_note';
+    task_note.innerHTML = get_task_note;
+
+    task_item.appendChild(task_name);
+    task_item.appendChild(task_date);
+    task_item.appendChild(task_note);
+
+    tasks_container.appendChild(task_item);
+}
+
+
 
 export {validate, task_on_screen};
