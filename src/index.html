@@ -6,6 +6,26 @@
     <title>To-do</title>
 </head>
 <body>
-    <h1>To-do</h1>
+    <div class="header">
+        <h1>To-do</h1>
+    </div>
+    <div class="container">
+        <div class="sideBar">
+            <div class="projectContainer"></div>
+            <form onsubmit="event.preventDefault()">
+                <input class="project_name_input" type="text" value="New list" required>
+                <button class="submitProject" type="button">Create new project</button>
+            </form>
+            <div class="projectList"></div>
+        </div>
+        <div class="content">
+            <form id="task_form" action="">
+                <input id="task_name" type="text" value="task">
+                <input id="task_date" type="datetime" value="date">
+                <button class="submitTask" type="button">Add</button>
+            </form>
+            <div class="tasks"></div>
+        </div>
+    </div>
 </body>
 </html>
