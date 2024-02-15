@@ -39,14 +39,16 @@ function validate() {
         newProject.addEventListener('click', (event)=>{
             previous_project_id = current_project_id;
             current_project_id = parseInt(event.target.id);
-            console.log(previous_project_id, current_project_id);
             if (previous_project_id == current_project_id) {
                 return;
             } else {
                 removeAllChildNodes(tasks_container);
-                //create associated list of tasks and show them
-                projects_list[current_project_id].forEach(element => { //problem: this doesnt run for some reason
-                    console.log(element.title);
+                //create associated list of tasks and show them on screen
+                projects_list[current_project_id].forEach(element => {
+                    let task_item = document.createElement('div');
+                    task_item.className = 'task_item';
+                    task_item.innerHTML = element.title.toString();
+                    tasks_container.appendChild(task_item);
                 });
                 return current_project_id;
             }
