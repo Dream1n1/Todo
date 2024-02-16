@@ -18,7 +18,9 @@ class task {
 }
 
 function createTask(project, title, due_date, note, check) {
-    projects_list[project].push(new task(title, due_date, note, check));
+    let new_task = new task(title, due_date, note, check);
+    projects_list[project].push(new_task);
+    return new_task;
 }
 
 export {projects_list, task, createProject, createTask};
