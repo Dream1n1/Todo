@@ -1,6 +1,3 @@
-import { projectList } from "./project";
-
-// let projects_list = [[task1,task2,task3],[],[]...];
 let projects_list = [];
 
 function createProject() {

@@ -1,11 +1,9 @@
-import { projects_list, task, createProject, createTask } from './task.js';
+import { projects_list, createProject, createTask } from './task.js';
 import { task_content_creator } from "./task_list_builder.js";
 
 const projectNameInput = document.querySelector('.project_name_input');
 const projectList = document.querySelector('.projectList');
-const container = document.querySelector('.container');
 
-const task_form = document.querySelector('#task_form');
 const task_name_input = document.querySelector('#task_name_input');
 const task_date_input = document.querySelector('#task_date_input');
 const task_note_input = document.querySelector('#task_note_input');
