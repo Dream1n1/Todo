@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #264653;
+}
+
+button {
+    padding: 7px;
+    border-style: hidden;
+    border-radius: 10px;
+    background-color: #e9c46a;
+}
+
+.header {
+    display: grid;
+    background-color: #2a9d8f;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.41);
+    -moz-box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.41);
+}
+.header > h1 {
+    justify-self: center;
+    align-self: center;
+    color: white;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    
+}
+
+form {
+    margin-bottom: 15px;
+}
+
+
+
+.project_name_input{
+    border: 2px;
+    border-style: solid;
+    border-color: #2a9d8f;
+    border-radius: 15px;
+    padding: 10px;
+}
+.project {
+    padding: 10px;
+    margin: 2px;
+    border-radius: 10px;
+    color: #f0e8d3;
+    background-color: #2a9d8f;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.content {
+    justify-self: end;
+    margin-right: 10%;
+}
+
+#task_form > input {
+    border: 2px;
+    border-style: solid;
+    border-color: green;
+    border-radius: 15px;
+    padding: 10px;
+}
+.task_item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f4a261;
+}
