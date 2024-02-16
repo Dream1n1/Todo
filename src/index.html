@@ -13,15 +13,16 @@
         <div class="sideBar">
             <div class="projectContainer"></div>
             <form onsubmit="event.preventDefault()">
-                <input class="project_name_input" type="text" value="New list" required>
-                <button class="submitProject" type="button">Create new project</button>
+                <input class="project_name_input" type="text" placeholder="My project" required>
+                <button class="submitProject" type="button">Add project</button>
             </form>
             <div class="projectList"></div>
         </div>
         <div class="content">
             <form id="task_form" action="">
-                <input id="task_name" type="text" value="task">
-                <input id="task_date" type="datetime" value="date">
+                <input id="task_name_input" type="text" placeholder="My task" required>
+                <input id="task_date_input" type="datetime" placeholder="day/month/year" required>
+                <input id="task_note_input" type="text" placeholder="Description">
                 <button class="submitTask" type="button">Add</button>
             </form>
             <div class="tasks"></div>
