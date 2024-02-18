@@ -1,5 +1,6 @@
 import { projects_list, createProject, createTask } from './task.js';
 import { task_content_creator } from "./task_list_builder.js";
+import { removeAllChildNodes } from "./removeChildNodes.js";
 
 const projectNameInput = document.querySelector('.project_name_input');
 const projectList = document.querySelector('.projectList');
@@ -10,19 +11,12 @@ const task_note_input = document.querySelector('#task_note_input');
 const tasks_container= document.querySelector('.tasks');
 
 
-function removeAllChildNodes(parent) {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
-
 let project_id_counter = 0;
-
 let current_project_id;
 let previous_project_id;
 
 // this creates a new project and gives an id to it
-function validate() {
+function project_on_screen() {
     if (projectNameInput.value == "") {
         return;
     } else {
@@ -67,4 +61,4 @@ function task_on_screen() {
 }
 
 
-export {validate, task_on_screen};
+export {project_on_screen, task_on_screen};
