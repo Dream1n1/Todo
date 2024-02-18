@@ -61,7 +61,7 @@ function project_on_screen() {
         projectNameInput.value = "";
     }
 }
-            
+
 function task_on_screen() {
     if (!task_name_input.value || !task_date_input.value) {
         return;
