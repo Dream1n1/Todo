@@ -62,7 +62,7 @@ function default_task_build(task_name, task_date, task_note) {
 }
 
 default_project_build("Important");
-default_task_build("Workout", "18/02/2024", "Leg day");
+default_task_build("Workout", "2024-02-18", "Leg day");
 
 function project_on_screen() {
     if (projectNameInput.value == "") {
