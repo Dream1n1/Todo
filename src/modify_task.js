@@ -23,13 +23,13 @@ export function save_task(array, firstIndex, secondIndex, name, date, note, modi
     date.setAttribute('contenteditable', 'false');
     note.setAttribute('contenteditable', 'false');
 
-    name.style.color = 'chartreuse';
-    date.style.color = 'chartreuse';
-    note.style.color = 'chartreuse';
+    name.style.color = '#459d2a';
+    date.style.color = '#459d2a';
+    note.style.color = '#459d2a';
 
-    name.style.backgroundColor = 'black';
-    date.style.backgroundColor = 'black';
-    note.style.backgroundColor = 'black';
+    name.style.backgroundColor = '#e0e0e0';
+    date.style.backgroundColor = '#e0e0e0';
+    note.style.backgroundColor = '#e0e0e0';
 
     name.style.padding = '5px';
     date.style.padding = '5px';

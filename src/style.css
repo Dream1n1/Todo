@@ -1,27 +1,40 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: cursive;
 }
 
 body {
-    background-color: #264653;
+    background-color: #a5a5a5;
+    display: flex;
+    flex-flow: column;
 }
 
 button {
     padding: 7px;
-    border-style: hidden;
+    border-style: solid;
     border-radius: 10px;
-    background-color: #e9c46a;
+    border-color: #e6ab16;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+button:hover {
+    font-weight: bold;
+    color: #ffffff;
+    padding: 10px;
+    background-color: #eeb934;
+    transform: rotate(7deg);
+    transition: 50ms;
 }
 
 .header {
     display: grid;
     background-color: #2a9d8f;
     padding: 20px;
-    margin-bottom: 20px;
     box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.41);
     -webkit-box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.41);
     -moz-box-shadow: 0px 3px 7px -1px rgba(0,0,0,0.41);
+    z-index: 999;
 }
 .header > h1 {
     justify-self: center;
@@ -33,38 +46,61 @@ button {
 .container {
     display: grid;
     grid-template-columns: 30% 70%;
-    
+    height: calc(100vh - 84px);
 }
 
 form {
     margin-bottom: 15px;
 }
 
-
+.sideBar {
+    padding: 10px;
+    padding-top: 15px;
+    background-color: #d3d3d3;
+}
 
 .project_name_input{
     border: 2px;
     border-style: solid;
-    border-color: #2a9d8f;
+    border-color: #a8a8a8;
     border-radius: 15px;
     padding: 10px;
 }
+
+.projectList {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    padding-right:5px ;
+    max-width: 200px;
+}
+
 .project {
-    padding: 10px;
+    padding: 5px 5px;
     margin: 2px;
     border-radius: 10px;
-    color: #f0e8d3;
-    background-color: #2a9d8f;
+    color: #ffffff;
+    background-color: #4d424d;
     font-size: 20px;
-    font-weight: bold;
-    
+    font-weight: 300;
+    text-align: center;
+    cursor: pointer;
+}
+.project:hover {
+    background-color: #e6ab16;
 }
 
 .content {
     justify-self: end;
     margin-right: 10%;
+    padding: 10px;
+    padding-top: 15px;
 }
 
+.tasks {
+    display: flex;
+    flex-direction: column-reverse;
+}
 #task_form > input {
     border: 2px;
     border-style: solid;
@@ -75,6 +111,28 @@ form {
 .task_item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
-    background-color: #f4a261;
+    background-color: #e0e0e0;
+    border-style: solid;
+    border-color: #797979;
+    margin-bottom: 5px;
+}
+.task_item > div {
+    color: #459d2a;
+}
+.task_name {
+    padding: 5px;
+    border-radius: 10%;
+    font-weight: bold;
+    font-size: 20px;
+    color: teal;
+    text-decoration: none;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #459d2a;
+    cursor: pointer;
 }

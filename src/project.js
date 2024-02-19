@@ -23,10 +23,21 @@ function default_project_build(project_name) {
     newProject.className = 'project';
     newProject.setAttribute('id', project_id_counter.toString());
     newProject.innerHTML = project_name;
-    
+    projectList.childNodes.forEach(element => {
+        element.style.borderStyle = "none";
+    })
+    newProject.style.borderStyle = "solid";
+    newProject.style.borderColor = "black";
+
     previous_project_id = project_id_counter;
     current_project_id = project_id_counter;
-    newProject.addEventListener('click', (event)=>{
+    newProject.addEventListener('click', (event)=>{      
+        projectList.childNodes.forEach(element => {
+            element.style.borderStyle = "none";
+        })
+        newProject.style.borderStyle = "solid";
+        newProject.style.borderColor = "black";
+        
         previous_project_id = current_project_id;
         current_project_id = parseInt(event.target.id);
         if (previous_project_id == current_project_id) {
