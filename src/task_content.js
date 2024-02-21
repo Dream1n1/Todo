@@ -11,17 +11,20 @@ export function task_content_creator(projects_array, get_task_name, get_task_dat
     delete_task_btn.className = 'delete_task';
     delete_task_btn.addEventListener('click', ()=>{
         delete_task(tasks_container, projects_array[projectIndex], taskIndex);
+        localStorage.setItem("projects_list", JSON.stringify(projects_array));
     });
 
     let task_check = document.createElement('input');
     task_check.setAttribute('type','checkbox');
     task_check.className = 'task_check';
     let taskIndex = projects_array[projectIndex].indexOf(currentTask);
+
     task_check.addEventListener('click', ()=> {
         if (!edit) {
             task_check.checked = false;
         } else if (task_check.checked == true) {
             projects_array[projectIndex][taskIndex].check = "checked";
+            localStorage.setItem("projects_list", JSON.stringify(projects_array));
             task_item.childNodes.forEach(childElement => {
                 childElement.style.textDecoration = "line-through";
             })
@@ -30,6 +33,7 @@ export function task_content_creator(projects_array, get_task_name, get_task_dat
 
         } else {
             projects_array[projectIndex][taskIndex].check = "uncheck";
+            localStorage.setItem("projects_list", JSON.stringify(projects_array));
             task_item.childNodes.forEach(childElement => {
                 childElement.style.textDecoration = "none";
             })
@@ -60,17 +64,18 @@ export function task_content_creator(projects_array, get_task_name, get_task_dat
             edit = false;
         } else {
             save_task(projects_array, projectIndex, taskIndex, task_name, task_date, task_note, modify_task_btn);
+            localStorage.setItem("projects_list", JSON.stringify(projects_array));
+
             edit = true;
         }
     });
-
     task_item.appendChild(task_check);
     task_item.appendChild(task_name);
     task_item.appendChild(task_date);
     task_item.appendChild(task_note);
     task_item.appendChild(modify_task_btn);
     task_item.appendChild(delete_task_btn);
-  
+    
     if (projects_array[projectIndex][taskIndex].check == "checked") {
         task_check.checked = true;
         task_item.childNodes.forEach(childElement => {
@@ -83,6 +88,6 @@ export function task_content_creator(projects_array, get_task_name, get_task_dat
             childElement.style.textDecoration = "none";
         })
     }
-
+    
     tasks_container.appendChild(task_item);
 }

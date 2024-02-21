@@ -1,8 +1,9 @@
-let projects_list = [];
 
 function createProject() {
     let project = [];
+    let projects_list = JSON.parse(localStorage.getItem("projects_list"));
     projects_list.push(project);
+    localStorage.setItem("projects_list", JSON.stringify(projects_list));
 }
 
 class task {
@@ -14,10 +15,16 @@ class task {
     }
 }
 
-function createTask(project, title, due_date, note, check) {
+function createTask(project, title, due_date, note, check="uncheck") {
     let new_task = new task(title, due_date, note, check);
-    projects_list[project].push(new_task);
-    return new_task;
+    let project_array = JSON.parse(localStorage.getItem("projects_list"));
+    project_array[project].push(new_task);
+    let obj = {
+        new_task: new_task,
+        project_array: project_array
+    }
+    localStorage.setItem("projects_list", JSON.stringify(project_array));
+    return obj;
 }
 
-export {projects_list, task, createProject, createTask};
+export {task, createProject, createTask};

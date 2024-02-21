@@ -40,5 +40,4 @@ export function save_task(array, firstIndex, secondIndex, name, date, note, modi
     array[firstIndex][secondIndex].title = name.innerHTML;
     array[firstIndex][secondIndex].due_date = date.innerHTML;
     array[firstIndex][secondIndex].note = note.innerHTML;
-    console.log(array);
 }
